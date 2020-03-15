@@ -6,21 +6,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# Source Facebook definitions
-if [ -f /usr/facebook/ops/rc/master.bashrc ]; then
-  . /usr/facebook/ops/rc/master.bashrc
-fi
-
-# Source admin definitions
-if [ -f $LOCAL_ADMIN_SCRIPTS/scm-prompt ]; then
-    source $LOCAL_ADMIN_SCRIPTS/scm-prompt
-fi
-
 # User Specific Functions
-# ldi ()
-# {
-#      ldapsearch -x -b dc=thefacebook,dc=com "(|(uid=$1)(cn=$1))" dn uid cn homeDirectory loginShell automountInformation wdid
-# }
 bo ()
 {
     cd $({ echo $PWD | cut -d '/' -f '1-6'; echo '/buck-out/gen/'; echo $PWD | cut -d '/' -f '7-'; } | tr -d '\n')
