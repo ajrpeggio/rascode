@@ -13,6 +13,8 @@ PKG_LIST = [
     "autoconf",
     "automake",
     "libtool",
+    "setuptools",
+    "python-dev",
 ]
 
 
