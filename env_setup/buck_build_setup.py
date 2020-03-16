@@ -1,18 +1,45 @@
 #!/usr/bin/python3
+import git
 import logging
 import os
-import subprocess
 import sys
 
+from typing import List
 
-logger = logging.getLogger(__name__)
+
+class CloneProgress(git.RemoteProgress):
+    def update(self, op_code, cur_count, max_count=None, message=""):
+        if message:
+            print(message)
 
 
-def repo_clone():
-    buck_repo = "git clone https://github.com/facebook/buck.git"
-    wm_repo = "https://github.com/facebook/watchman.git"
-    
+def git_clone(repo_url, target_dir):
+    try:
+        git.Repo.clone_from(
+            repo_url, target_dir, branch="master", progress=CloneProgress()
+        )
+    except Exception as e:
+        raise e
 
-def watchman_setup():
-    wm_url = "https://github.com/facebook/watchman.git"
-    clone_cmd = f"git clone {wm_url} -b v4.9.0 --depth 1"
+
+def main():
+    pwd = os.getcwd()
+    # Cloning Buck and Watchman Repos
+    repo_list = [
+        {
+            "name": "buck",
+            "url": "https://github.com/facebook/buck.git",
+            "path": f"{pwd}/buck/",
+        },
+        {
+            "name": "watchman",
+            "url": "https://github.com/facebook/buck.git",
+            "path": f"{pwd}/watchman/",
+        }
+    ]
+    for i in repo_list:
+        git_clone(i["url"], i["path"])
+
+
+if __name__ == "__main__":
+    sys.exit(main())
