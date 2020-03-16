@@ -5,16 +5,19 @@ import sys
 PKG_LIST = [
     "vim",
     "git",
+    "mercurial",
     "default-jdk",
     "python2.7",
     "black",
     "ant",
-    "libssl-dev",
     "autoconf",
     "automake",
+    "build-essential",
+    "libssl-dev",
     "libtool",
-    "setuptools",
     "python-dev",
+    "python-setuptools",
+    "python3-setuptools",
 ]
 
 
