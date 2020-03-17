@@ -5,7 +5,9 @@ import os
 import subprocess
 
 
-PIP_PKGS = ["aiohttp", "GitPython", "paramiko", "PyMySQL", "xmltodict"]
+PIP_PKGS = [
+    "aiohttp", "GitPython", "paramiko", "pyHS100", "PyMySQL", "requests", "xmltodict"
+]
 
 
 def logger():
