@@ -6,7 +6,14 @@ import subprocess
 
 
 PIP_PKGS = [
-    "aiohttp", "GitPython", "paramiko", "pyHS100", "PyMySQL", "requests", "xmltodict"
+    "aiohttp",
+    "black",
+    "GitPython",
+    "paramiko",
+    "pyHS100",
+    "PyMySQL",
+    "requests",
+    "xmltodict",
 ]
 
 

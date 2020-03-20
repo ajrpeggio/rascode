@@ -8,7 +8,7 @@ PKG_LIST = [
     "mercurial",
     "default-jdk",
     "python2.7",
-    "black",
+    "python3-pip",
     "ant",
     "autoconf",
     "automake",
