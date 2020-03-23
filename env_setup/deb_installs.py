@@ -4,11 +4,15 @@ import sys
 
 PKG_LIST = [
     "vim",
+    "net-tools",
+    "curl",
+    "apache2",
     "git",
     "mercurial",
     "default-jdk",
     "python2.7",
     "python3-pip",
+    "openssh-server",
     "ant",
     "autoconf",
     "automake",
@@ -21,26 +25,27 @@ PKG_LIST = [
 ]
 
 
-def install(cache, pkg_name):
-    pkg = cache[pkg_name]
-    if pkg.is_installed:
-        print(f"{pkg_name} is already installed. ")
-        return
-    else:
-        pkg.mark_install()
-    try:
-        cache.commit()
-    except Exception as e:
-        print(sys.stderr, f"Unable to install package. {e}")
-
-
-def main(pkg_list):
+def install_pkgs(pkg_list: List):
+    def apt_install(cache, pkg_name):
+        pkg = cache[pkg_name]
+        if pkg.is_installed:
+            print(f"{pkg_name} is already installed. ")
+            return
+        else:
+            pkg.mark_install()
+        try:
+            cache.commit()
+        except Exception as e:
+            print(sys.stderr, f"Unable to install package. {e}")
     cache = apt.cache.Cache()
     cache.update()
     cache.open()
+    for pkg in pkg_list:
+        apt_install(cache, pkg)
 
-    for i in pkg_list:
-        install(cache, i)
+
+def main(pkg_list):
+    install_pkgs(pkg_list)
 
 
 if __name__ == "__main__":
