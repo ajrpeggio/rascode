@@ -19,7 +19,7 @@ bi ()
 
 # User Specific Aliases
 
-alias rascode="cd /home/ajrpeggio/rascode/"
+alias rascode="cd ${HOME}/rascode/"
 
 # _scm_prompt
 
