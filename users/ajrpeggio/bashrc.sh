@@ -38,8 +38,8 @@ MY_PROMPT_1="\[$(tput sgr0)\]\[\033[38;5;1m\] \\$\[$(tput sgr0)\]\[\033[38;5;15m
 _prompt_command() {
   LAST_STAT=$?
   case $LAST_STAT in
-    0) PS1="$CHECK ${MY_PROMPT_0}${MY_PROMPT_1}" ;;
-    *) PS1="$CROSS ${MY_PROMPT_0}${MY_PROMPT_1}" ;;
+    0) PS1="${MY_PROMPT_0}${MY_PROMPT_1}" ;;
+    *) PS1="${MY_PROMPT_0}${MY_PROMPT_1}" ;;
   esac
   history -a
   true
