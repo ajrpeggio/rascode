@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/usr/bin/python3.6",
+    "buck.projectConfig": {
+        "projectPath": "/home/ajrpeggio/rascode",
+        "flavor": [],
+        "target": "",
+        "platform": "linux-x86_64"
+    }
+}

@@ -2,6 +2,9 @@
 import apt
 import sys
 
+from typing import List
+
+
 PKG_LIST = [
     "vim",
     "net-tools",
@@ -10,6 +13,7 @@ PKG_LIST = [
     "git",
     "mercurial",
     "default-jdk",
+    "openjdk-8-jre",
     "python2.7",
     "python3-pip",
     "openssh-server",

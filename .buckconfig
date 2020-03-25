@@ -1,0 +1,15 @@
+[cache]
+  mode = dir
+
+
+[python]
+  interpreter = /usr/bin/python3
+  path_to_pex_executer = /bin/bash
+
+
+[project]
+    ignore = .buckd, \
+             .hg, \
+             .git, \
+             buck-cache, \
+             buck-out, \
