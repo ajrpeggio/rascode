@@ -3,7 +3,7 @@
     "buck.projectConfig": {
         "projectPath": "/home/ajrpeggio/rascode",
         "flavor": [],
-        "target": "",
+        "target": "//env_setup:python_env",
         "platform": "linux-x86_64"
     }
 }
