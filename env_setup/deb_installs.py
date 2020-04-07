@@ -29,18 +29,22 @@ PKG_LIST = [
 ]
 
 
+
+def apt_install(cache, pkg_name):
+    pkg = cache[pkg_name]
+    if pkg.is_installed:
+        print(f"{pkg_name} is already installed. ")
+        return
+    else:
+        pkg.mark_install()
+    try:
+        cache.commit()
+    except Exception as e:
+        print(sys.stderr, f"Unable to install package. {e}")
+
+
+
 def install_pkgs(pkg_list: List):
-    def apt_install(cache, pkg_name):
-        pkg = cache[pkg_name]
-        if pkg.is_installed:
-            print(f"{pkg_name} is already installed. ")
-            return
-        else:
-            pkg.mark_install()
-        try:
-            cache.commit()
-        except Exception as e:
-            print(sys.stderr, f"Unable to install package. {e}")
     cache = apt.cache.Cache()
     cache.update()
     cache.open()
