@@ -9,23 +9,11 @@ PKG_LIST = [
     "vim",
     "net-tools",
     "curl",
-    "apache2",
     "git",
     "mercurial",
     "default-jdk",
-    "openjdk-8-jre",
-    "python2.7",
     "python3-pip",
     "openssh-server",
-    "ant",
-    "autoconf",
-    "automake",
-    "build-essential",
-    "libssl-dev",
-    "libtool",
-    "python-dev",
-    "python-setuptools",
-    "python3-setuptools",
 ]
 
 
