@@ -1,0 +1,11 @@
+@ IN SOA rasdns.rasdome.lan. hostmaster.rasdome.lan. (
+    2017081401 ; serial
+    8H ; refresh
+    4H ; retry
+    4W ; expire
+    1D ; minimum
+)
+          IN NS rasdns.rasdome.lan.
+1         IN PTR router.rasdome.lan.
+31        IN PTR rasdns.rasdome.lan.
+40        IN PTR meistro.rasdome.lan.

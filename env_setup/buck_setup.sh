@@ -9,22 +9,6 @@ function aptInstalls() {
 
 }
 
-INIT_PKGS=(
-    "curl"
-    "mercurial"
-    "net-tools"
-    "openssh-server"
-    "git"
-    "vim"
-    "default-jdk"
-    "python3-pip"
-)
-
-aptInstalls ${INIT_PKGS[@]}
-
-###
-###
-
 WM_PKGS=(
     "build-essential"
     "libssl-dev"
