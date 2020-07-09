@@ -30,6 +30,12 @@ cd watchman
 make
 sudo make install
 
+##
+##
+
+cd ${HOME}
+
+
 ###
 ###
 

@@ -18,6 +18,9 @@ INIT_PKGS=(
     "vim"
     "default-jdk"
     "python3-pip"
+    "ruby"
 )
 
 aptInstalls ${INIT_PKGS[@]}
+
+/usr/bin/python3 #{HOME}/env_setup/python_env.py
