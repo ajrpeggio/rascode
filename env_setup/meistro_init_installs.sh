@@ -6,7 +6,6 @@ function aptInstalls() {
       do
           sudo apt install "${i}" -y
       done
-
 }
 
 INIT_PKGS=(
@@ -23,4 +22,15 @@ INIT_PKGS=(
 
 aptInstalls ${INIT_PKGS[@]}
 
-/usr/bin/python3 #{HOME}/env_setup/python_env.py
+ENV_PATH="${HOME}/env_setup"
+
+PY_SCRIPTS=(
+    "${ENV_PATH}/python_env.py"
+    "${ENV_PATH}/dev_installs.py"
+    "${ENV_PATH}/code_server_install.py"
+)
+
+for I in ${PY_SCRIPTS[@]}
+do
+    /usr/bin/python3 "${I}"
+done

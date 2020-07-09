@@ -26,20 +26,24 @@ def logger():
     return logger
 
 
+def byte_decoder(msg: str()):
+    if msg.decode("UTF-8"):
+        return [x.decode("UTF-8") for x in msg.split(b"\n") if x != b""]
+    else:
+        raise TypeError("Positional Argument string is not UTF-8. ")
+
+
 log = logger()
 
 
-async def shell_run(cmd):
-    try:
-        proc = await asyncio.create_subprocess_shell(
-            cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-        )
-        stdout, stderr = await proc.communicate()
-    except Exception as e:
-        raise e
+async def shell_run(cmd: str):
+    proc = await asyncio.create_subprocess_shell(
+        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+    )
+    stdout, stderr = await proc.communicate()
     return {
-        "stdout": [x.decode("UTF-8") for x in stdout.split(b"\n") if x != b""],
-        "stderr": [x.decode("UTF-8") for x in stderr.split(b"\n") if x != b""],
+        "stdout": byte_decoder(stdout),
+        "stderr": byte_decoder(stderr),
     }
 
 
