@@ -7,10 +7,14 @@ http_file(
     out = "pyHS100-0.3.5.1-py3-none-any.whl",
 )
 
-python_prebuilt_library(
+prebuilt_python_library(
     name = "pyhs100",
-    binary_src = "pyHS100-0.3.5.1-py3-none-any.whl",
-    deps = [],
+    binary_src = ":pyhs100-download",
+    deps = [
+        "//python/wheel/click:click",
+        "//python/wheel/click-datetime:click-datetime",
+        "//python/wheel/typing:typing",
+    ],
     visibility = [
         "PUBLIC",
     ]

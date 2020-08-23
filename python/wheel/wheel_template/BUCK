@@ -1,0 +1,17 @@
+# http_file(
+#     name = "-download",
+#     urls = [
+#         "",
+#     ],
+#     sha256 = "",
+#     out = "",
+# )
+
+# prebuilt_python_library(
+#     name = "",
+#     binary_src = ":-download",
+#     deps = [],
+#     visibility = [
+#         "PUBLIC",
+#     ]
+# )

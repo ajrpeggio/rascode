@@ -1,0 +1,19 @@
+http_file(
+    name = "click-datetime-download",
+    urls = [
+        "https://files.pythonhosted.org/packages/69/ce/ab558a961355258685cfa34c2aa1dd405c696b59cc9d60529b66c083ce30/click_datetime-0.2-py2.py3-none-any.whl",
+    ],
+    sha256 = "7256ca518e648ada8e2550239ab328de125906e5b7199a5bd5bcbb4dfe28f946",
+    out = "click_datetime-0.2-py2.py3-none-any.whl",
+)
+
+prebuilt_python_library(
+    name = "click-datetime",
+    binary_src = ":click-datetime-download",
+    deps = [
+        "//python/wheel/click:click",
+    ],
+    visibility = [
+        "PUBLIC",
+    ]
+)

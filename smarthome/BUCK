@@ -1,15 +1,10 @@
-# python_library(
-#     name = ""
-#     srcs = [],
-#     deps = [],
-#     visibility = [],
-# )
-
 python_binary(
     name = "spcli",
     main = "spcli.py",
     base_module = "smarthome",
-    deps = [],
+    deps = [
+        "//python/wheel/pyhs100:pyhs100",
+    ],
     visibility = [
         "PUBLIC",
     ],
