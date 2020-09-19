@@ -34,17 +34,6 @@ function aptInstalls() {
 } 
 
 
-function wmInstall() {
-    cd ${HOME}
-    git clone https://github.com/facebook/watchman.git -b v4.9.0 --depth 1
-    cd watchman/
-    ./autogen.sh
-    ./configure --with-python=/usr/bin/python3 --enable-conffile=/etc/watchman.json
-    make
-    sudo make install
-}
-
-
 function buckInstall() {
     cd ${HOME}
     /usr/bin/git clone https://github.com/facebook/buck.git 
@@ -65,8 +54,6 @@ aptInstalls ${BUCK_PKGS[@]}
 
 sudo apt update
 sudo apt upgrade -y
-# Calling Watchman Install Function
-# wmInstall
 
 # Calling Buck Install Function
 buckInstall
