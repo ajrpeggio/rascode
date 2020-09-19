@@ -9,3 +9,15 @@ python_binary(
         "PUBLIC",
     ],
 )
+
+python_binary(
+    name = "pyhs100",
+    main = "pyhs100.py",
+    base_module = "third-party.python.tests",
+    deps = [
+        "//third-party/python/pyhs100:pyhs100",
+    ],
+    visibility = [
+        "PUBLIC",
+    ],
+)
