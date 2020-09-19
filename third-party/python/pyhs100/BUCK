@@ -1,0 +1,21 @@
+http_file(
+    name = "pyhs100-download",
+    urls = [
+        "https://files.pythonhosted.org/packages/de/21/a6322f406f4039858954c4624fc53d2ae873170888ca056c67609e47ea5c/pyHS100-0.3.5.1-py3-none-any.whl",
+    ],
+    sha256 = "a8dafdf842796e84bdaa5c755e77bffaed64a1a830fba6456eb88b92c367c541",
+    out = "pyHS100-0.3.5.1-py3-none-any.whl",
+)
+
+prebuilt_python_library(
+    name = "pyhs100",
+    binary_src = ":pyhs100-download",
+    deps = [
+        "//python/wheel/click:click",
+        "//python/wheel/click-datetime:click-datetime",
+        "//python/wheel/typing:typing",
+    ],
+    visibility = [
+        "PUBLIC",
+    ]
+)
