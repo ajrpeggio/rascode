@@ -1,0 +1,11 @@
+python_binary(
+    name = "aiohttp",
+    main = "aiohttp.py",
+    base_module = "third-party.python.tests",
+    deps = [
+        "//third-party/python/aiohttp:aiohttp",
+    ],
+    visibility = [
+        "PUBLIC",
+    ],
+)
