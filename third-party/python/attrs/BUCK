@@ -1,0 +1,16 @@
+http_file(
+    name = "attrs-download",
+    urls = [
+        "https://files.pythonhosted.org/packages/14/df/479736ae1ef59842f512548bacefad1abed705e400212acba43f9b0fa556/attrs-20.2.0-py2.py3-none-any.whl",
+    ],
+    sha256 = "fce7fc47dfc976152e82d53ff92fa0407700c21acd20886a13777a0d20e655dc",
+    out = "attrs-20.2.0-py2.py3-none-any.whl",
+)
+
+prebuilt_python_library(
+    name = "attrs",
+    binary_src = ":attrs-download",
+    visibility = [
+        "PUBLIC",
+    ]
+)

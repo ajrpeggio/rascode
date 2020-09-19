@@ -1,0 +1,22 @@
+http_file(
+    name = "aiohttp-download",
+    urls = [
+        "https://files.pythonhosted.org/packages/c2/f7/f0ad3dbace4762fef5d80aa4124b41bf218e4c4dd6d387a86cede707d9a4/aiohttp-3.6.2-py3-none-any.whl",
+    ],
+    sha256 = "460bd4237d2dbecc3b5ed57e122992f60188afe46e7319116da5eb8a9dfedba4",
+    out = "aiohttp-3.6.2-py3-none-any.whl",
+)
+
+prebuilt_python_library(
+    name = "aiohttp",
+    binary_src = ":aiohttp-download",
+    deps = [
+        "//third-party/python/async-timeout:async-timeout",
+        "//third-party/python/attrs:attrs",
+        "//third-party/python/chardet:chardet",
+        "//third-party/python/yarl:yarl",
+    ],
+    visibility = [
+        "PUBLIC",
+    ]
+)

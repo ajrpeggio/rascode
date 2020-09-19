@@ -3,7 +3,7 @@ python_binary(
     main = "spcli.py",
     base_module = "smarthome",
     deps = [
-        "//python/wheel/pyhs100:pyhs100",
+        "//third-party/python/pyhs100:pyhs100",
     ],
     visibility = [
         "PUBLIC",
