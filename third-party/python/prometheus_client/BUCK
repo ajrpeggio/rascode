@@ -1,0 +1,17 @@
+http_file(
+    name = "prometheus-client-download",
+    urls = [
+        "https://files.pythonhosted.org/packages/3f/0e/554a265ffdc56e1494ef08e18f765b0cdec78797f510c58c45cf37abb4f4/prometheus_client-0.8.0-py2.py3-none-any.whl",
+    ],
+    sha256 = "983c7ac4b47478720db338f1491ef67a100b474e3bc7dafcbaefb7d0b8f9b01c",
+    out = "prometheus_client-0.8.0-py2.py3-none-any.whl",
+)
+
+prebuilt_python_library(
+    name = "prometheus_client",
+    binary_src = ":prometheus-client-download",
+    deps = [],
+    visibility = [
+        "PUBLIC",
+    ]
+)
