@@ -2,3 +2,7 @@ buck-out/
 .buckd/
 .vscode/settings.json
 .vscode/
+node_modules/
+node_modules
+build
+.dockerignore

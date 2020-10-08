@@ -1,0 +1,19 @@
+http_file(
+    name = "Jinja2-download",
+    urls = [
+        "https://files.pythonhosted.org/packages/30/9e/f663a2aa66a09d838042ae1a2c5659828bb9b41ea3a6efa20a20fd92b121/Jinja2-2.11.2-py2.py3-none-any.whl",
+    ],
+    sha256 = "f0a4641d3cf955324a89c04f3d94663aa4d638abe8f733ecd3582848e1c37035",
+    out = "Jinja2-2.11.2-py2.py3-none-any.whl",
+)
+
+prebuilt_python_library(
+    name = "jinja2",
+    binary_src = ":Jinja2-download",
+    deps = [
+        "//third-party/python/markupsafe:markupsafe",
+    ],
+    visibility = [
+        "PUBLIC",
+    ]
+)

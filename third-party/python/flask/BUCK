@@ -1,0 +1,22 @@
+http_file(
+    name = "flask-download",
+    urls = [
+        "https://files.pythonhosted.org/packages/f2/28/2a03252dfb9ebf377f40fba6a7841b47083260bf8bd8e737b0c6952df83f/Flask-1.1.2-py2.py3-none-any.whl",
+    ],
+    sha256="8a4fdd8936eba2512e9c85df320a37e694c93945b33ef33c89946a340a238557",
+    out="Flask-1.1.2-py2.py3-none-any.whl",
+)
+
+prebuilt_python_library(
+    name = "flask",
+    binary_src = ":flask-download",
+    deps = [
+        "//third-party/python/click:click",
+        "//third-party/python/itsdangerous:itsdangerous",
+        "//third-party/python/jinja2:jinja2",
+        "//third-party/python/werkzeug:werkzeug",
+    ],
+    visibility = [
+        "PUBLIC",
+    ]
+)

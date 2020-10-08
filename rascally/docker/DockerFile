@@ -1,0 +1,23 @@
+# pull official base image
+FROM node:13.12.0-alpine
+
+# set working directory
+WORKDIR /app
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+# install app deps
+COPY ../www/packages.json ./
+COPY ../www/package-lock.json ./
+
+RUN npm install --silent
+
+
+COPY ../www ./
+
+EXPOSE 8080
+
+CMD ["node", "start"]
+
+
