@@ -1,0 +1,11 @@
+python_binary(
+    name="server",
+    main="server.py",
+    base_module="rascally.www",
+    deps=[
+        "//third-party/python/flask:flask",
+    ],
+    visibility=[
+        "PUBLIC",
+    ],
+)
