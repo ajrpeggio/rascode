@@ -1,23 +1,18 @@
-# pull official base image
-FROM node:13.12.0-alpine
+# set base image (host OS)
+FROM python:3.8
 
-# set working directory
-WORKDIR /app
+# set the working directory in the container
+WORKDIR /code
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# copy the dependencies file to the working directory
+COPY requirements.txt .
 
-# install app deps
-COPY ../www/packages.json ./
-COPY ../www/package-lock.json ./
+# install dependencies
+RUN buck build ${HOME}/rascode/rascally/www:server
+COPY ${HOME}/rascode/buck-out/gen/rascally/www/server.pex .
 
-RUN npm install --silent
+# copy the content of the local src directory to the working directory
+COPY src/ .
 
-
-COPY ../www ./
-
-EXPOSE 8080
-
-CMD ["node", "start"]
-
-
+# command to run on container start
+CMD [ "python3", "./server.pex" ]
